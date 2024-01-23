@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Registros citas</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<ul class="nav nav-tabs">
+	  <li class="nav-item">
+	    <a class="nav-link active" aria-current="page" href="/">Control de Pagos</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="/registro">Agregar Estudiante</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="/registros">Registros</a>
+	  </li>
+	</ul><br><br>
+
+<!--     <form action="/registrosFilter" method="POST">
+	<div class="container-fluid">	
+		<nav class="nav">
+			<label>Mes:</label>&nbsp
+			<select style="width: 170px;" class="form-select" aria-label="Default select example" name="mes">
+				<option selected>-- Mes --</option>
+					<option value="Enero">Enero</option>
+					<option value="Febrero">Febrero</option>
+					<option value="Marzo">Marzo</option>
+					<option value="Abril">Abril</option>
+					<option value="Mayo">Mayo</option>
+					<option value="Junio">Junio</option>
+					<option value="Julio">Julio</option>
+					<option value="Agosto">Agosto</option>
+					<option value="Septiembre">Septiembre</option>
+					<option value="Octubre">Octubre</option>
+					<option value="Noviembre">Noviembre</option>
+					<option value="Diciembre">Diciembre</option>
+			</select>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+			<label>Fecha de pago:</label>
+  				<input class="form-control" style="width: 170px;" type="date" id="fecha_pago" name="fecha_pago"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+  			<label>Fecha:</label>
+  				<input class="form-control" style="width: 170px;" type="date" id="fecha" name="fecha"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+  			<label>Concepto:</label>
+			<select style="width: 170px;" class="form-select" aria-label="Default select example" name="concepto">
+				<option selected>-- Concepto --</option>
+					<option value="Sin concepto">Sin concepto</option>
+					<option value="Concepto 1">Concepto 1</option>
+					<option value="Concepto 2">Concepto 2</option>
+			</select><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input class="btn btn-success" type="submit" value="Buscar">
+		</nav>
+	</div>
+	</form> -->
+
+	<div class="container"><br><br>
+		<div style="text-align: right;">
+			<h1 class="text-center">Información de todas las Citas</h1>
+		</div>
+<!-- 		<div class="card-body">
+			<table class="table">
+				<thead>
+					<tr>
+					 	<th scope="col">id_cita</th>
+					 	<th scope="col">consultorio</th>
+					 	<th scope="col">doctor</th>
+					 	<th scope="col">horario_consulta</th>
+					 	<th scope="col">nombre_paciente</th>
+					 	<th scope="col">fecha_consulta</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="Citas : ${citas}">
+						<td th:text="${Citas.id_cita}">
+						<td th:text="${Citas.consultorio}">
+						<td th:text="${Citas.doctor}">
+						<td th:text="${Citas.horario_consulta}">
+						<td th:text="${Citas.nombre_paciente}">
+						<td th:text="${Citas.fecha_consulta}">
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
+	</div>
+</body>
+</html>
