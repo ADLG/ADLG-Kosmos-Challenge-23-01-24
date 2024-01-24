@@ -24,8 +24,7 @@ public class Doctor
 	@Column(name = "especialidad")
 	private String especialidad;
 	
-	
-	
+
 	public Doctor() {
 		super();
 	}

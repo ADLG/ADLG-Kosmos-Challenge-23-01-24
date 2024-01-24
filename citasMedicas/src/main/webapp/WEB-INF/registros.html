@@ -13,12 +13,43 @@
 	
 	<ul class="nav nav-tabs">
 	  <li class="nav-item">
-	    <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+	    <a class="nav-link" aria-current="page" href="/">Inicio</a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="/reg">Registros</a>
+	    <a class="nav-link active" href="/reg">Registros</a>
 	  </li>
 	</ul><br><br>
-	<h1 class="text-center">Citas Disponibles</h1>
+
+<div class="container"><br><br>
+		<div style="text-align: right;">
+			<h1 class="text-center">Información de todas las Citas</h1>
+		</div>
+		<div class="card-body">
+			<table class="table">
+				<thead>
+					<tr>
+					 	<th scope="col">id_cita Pago</th>
+					 	<th scope="col">consultorio</th>
+					 	<th scope="col">doctor</th>
+					 	<th scope="col">horario_consulta</th>
+					 	<th scope="col">nombre_paciente</th>
+					 	<th scope="col">fecha_consulta</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="Cita : ${citas}">
+						<td th:text="${Cita.id_cita}">
+						<td th:text="${Cita.consultorio}">
+						<td th:text="${Cita.doctor}">
+						<td th:text="${Cita.horario_consulta}">
+						<td th:text="${Cita.nombre_paciente}">
+						<td th:text="${Cita.fecha_consulta}">
+				<td><a class="btn btn-danger" th:href="@{'/eliminarCita/' + ${Cita.id_cita}}">Eliminar</a>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
 </body>
 </html>

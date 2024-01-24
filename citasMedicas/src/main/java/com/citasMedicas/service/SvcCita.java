@@ -33,4 +33,15 @@ public class SvcCita
 	{
 		repoCita.deleteById(id);
 	}
+
+	public int ultimaCita()
+	{
+		return repoCita.ultimaCita();
+	}
+
+	public void insertCita(int id_cita, String consultorio,String doctor,String fecha_consulta,String horario,String nombre_paciente)
+	{
+		repoCita.insertCita(id_cita,consultorio,doctor,horario,nombre_paciente,fecha_consulta);
+	}
+
 }

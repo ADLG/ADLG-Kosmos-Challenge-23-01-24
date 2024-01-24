@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.citasMedicas.entity.Cita;
 import com.citasMedicas.entity.Consultorio;
 import com.citasMedicas.entity.Doctor;
 import com.citasMedicas.service.SvcCita;
@@ -26,18 +29,13 @@ public class CtrlCitas
 	@Autowired
 	SvcDoctor svcDoctor;
 	
-	// @RequestMapping("/")
-	// public String index()
-	// {
-	// 	return "index";
-	// }
-
 	@RequestMapping("/reg")
-	public String reg()
+	public ModelAndView reg()
 	{
-		// List<Consultorio> consultorios = svcConsultorio.listAll();
-		// System.out.println(consultorios.size());
-		return "registros";
+		ModelAndView mv = new ModelAndView("registros");
+		List<Cita> citas = svcCita.listAll();
+		mv.addObject("citas",citas);
+		return mv;
 	}
 
 	@RequestMapping("/")
@@ -52,4 +50,18 @@ public class CtrlCitas
 		return mv;
 	}
 
+	@PostMapping("/agregarCita")
+	public String agregarCita(String consultorio,String doctor,String horario_consulta,String nombre_paciente,String fecha_consulta, Model model)
+	{
+		svcCita.insertCita(svcCita.ultimaCita()+1,consultorio,doctor,fecha_consulta,horario_consulta,nombre_paciente);
+		return "redirect:/";
+	}
+
+
+	@RequestMapping("/eliminarCita/{id}")
+	public String eliminarCita(@PathVariable(name = "id") int id)
+	{
+		svcCita.delete(id);
+		return "redirect:/reg";
+	}
 }
