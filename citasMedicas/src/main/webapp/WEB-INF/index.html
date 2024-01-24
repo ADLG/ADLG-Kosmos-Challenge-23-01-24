@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agendar Cita</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<ul class="nav nav-tabs">
+	  <li class="nav-item">
+	    <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="/reg">Registros</a>
+	  </li>
+	</ul><br><br>
+	<h1 class="text-center">Agendar Cita</h1>
+
+	 <form action="/agendarCita" method="POST"> 
+	 <form th:action="@{/agendarCita}" th:object="${cita}" method="POST"> 
+ 	<div class="container">
+	  <div class="col-lg-6 col-md-6 col-sm-6 container-fluid justify-content-center">
+	  		<label>Consultorio</label>
+	         <div class="input-group">
+			  <select class="form-select" aria-label="Default select example" name="consultorio">
+				<option selected>-- Consultorio --</option>
+				 <tr th:each="Consultorio : ${consultorios}">
+					<option value="consultorio"><td th:text="${Consultorio.numero_consultorio}"></td></option>
+				</tr>
+			  </select><br>
+			 </div><br> 
+ 
+			<label>Doctor</label>
+	        <div class="input-group">
+			<select class="form-select" aria-label="Default select example" name="doctor">
+			<option selected>-- Doctor --</option>
+				<tr th:each="Doctor : ${doctores}">
+					<option value="doctor"><td th:text="${Doctor.nombre}"></option>
+				</tr>
+			</select><br>
+			</div><br>
+
+	        <div class="input-group">
+			<label>Fecha:</label>&nbsp
+  			<input class="form-control" style="width: 170px;" type="date" name="fecha_consulta">&nbsp&nbsp&nbsp
+
+  			<label>Hora:</label>&nbsp
+  			<input class="form-control" style="width: 170px;" type="time" name="horario"><br>
+			</div><br>
+
+  			<label>Nombre del Paciente:</label>
+  			<input class="form-control" type="text" name="nombre_paciente"><br> 
+							
+		 <!-- <button class="btn btn-success">Guardar</button>  -->
+	     <input class="btn btn-primary container-fluid" type="submit" value="Agendar Cita"> 
+	   </div>
+	</div>
+	</form> 
+
+</body>
+</html>
